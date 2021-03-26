@@ -1,0 +1,112 @@
+<div class="post">
+    <div class="container">
+        <div class="tab">
+            <mat-tab-group animationDuration="2000ms">
+                <mat-tab label="Your Articles">
+                    <div *ngIf="ArticleService.articles.length == 0">
+                        <p class="mt-5 ml-5">No articles are here... yet.
+                        </p>
+                    </div>
+                    <div *ngIf="ArticleService.articles.length != 0">
+                        <a>
+                            <div class="card mt-5" *ngFor="let item of ArticleService.articles;let i=index">
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <div class="col-md-1 col-2">
+                                            <img src="assets/images/smile.jpg" class="w-100">
+                                        </div>
+                                        <div class="col-md-10 col-8">
+                                            <h5>Vla</h5>
+                                            <p>{{date | date:'short'}}</p>
+                                        </div>
+                                        <ng-container *ngIf="item">
+                                        <div class="col-md-1 col-2">
+                                            <i class="fa fa-thumbs-o-up" aria-hidden="true"
+                                                (click)="increaseCount(i)" [style.color]="count[i] ? 'yellowgreen':''"></i> {{count[i]}}
+                                        </div>
+                                    </ng-container>
+                                    </div>
+                                    <div class="col-md-12 ml-5 mt-2">
+                                        <p>{{item.title}}</p>
+                                    </div>
+                                    <div class="col-md-12 ml-5">
+                                        <p>{{item.about}}</p>
+
+                                    </div>
+                                    <div class="col-md-12 ml-5">
+                                        <p>{{item.content}}</p>
+                                    </div>
+                                    <div class="col-md-12 ml-3">
+                                        <a routerLink="/article-details/{{i}}">Write Comment</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Global Articles">
+                    <a>
+                        <div class="card mt-5" *ngFor="let item of ArticleService.articles;let i=index">
+                            <div class="row m-3">
+                                <div class="col-md-12">
+                                    <div class="col-md-1 col-2">
+                                        <img src="assets/images/smile.jpg" class="w-100">
+                                    </div>
+                                    <div class="col-md-10 col-8">
+                                        <h5>Vla</h5>
+                                        <p>{{date | date:'short'}}</p>
+                                    </div>
+                                    <ng-container *ngIf="item">
+                                        <div class="col-md-1 col-2">
+                                            <i class="fa fa-thumbs-o-up" aria-hidden="true"
+                                                (click)="increaseCount(i)" [style.color]="count[i] ? 'yellowgreen':''"></i> {{count[i]}}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                                <div class="col-md-12 ml-5 mt-3">
+                                    <p>{{item.title}}</p>
+                                </div>
+                                <div class="col-md-12 ml-5">
+                                    <p>{{item.about}}</p>
+
+                                </div>
+                                <div class="col-md-12 ml-5">
+                                    <p>{{item.content}}</p>
+                                </div>
+                                <div class="col-md-12 ml-3">
+                                    <a routerLink="/article-details/{{i}}">Write Comment</a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="card mt-5">
+                        <div class="row m-3">
+                            <div class="col-md-12">
+                                <div class="col-md-1 col-2">
+                                    <img src="assets/images/smile.jpg" class="w-100">
+                                </div>
+                                <div class="col-md-11 col-10">
+                                    <h5>Vla</h5>
+                                    <p>{{date | date:'short'}}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ml-3 mt-1">
+                                <p>Nothing</p>
+                            </div>
+                            <div class="col-md-12 ml-3">
+                                <p>my first article</p>
+
+                            </div>
+                            <div class="col-md-12">
+                                <p></p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>

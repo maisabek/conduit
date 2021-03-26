@@ -1,0 +1,61 @@
+<div class="new-article">
+<div class="container">
+    <div class="col-md-12 card">
+   <form class="m-5" [formGroup]="articleForm">
+       <mat-form-field appearance="fill">
+           <mat-label>Article Title</mat-label>
+           <input type="text" matInput formControlName="title">
+       </mat-form-field>
+       <br>
+       <mat-form-field appearance="fill">
+           <mat-label>What's this article about?</mat-label>
+           <input type="text" matInput formControlName="about">
+       </mat-form-field>
+       <br>
+       <mat-form-field appearance="fill">
+           <mat-label>Write your article (in markdown)</mat-label>
+           <textarea matInput rows="5" formControlName="content"></textarea>
+        </mat-form-field>
+        <br>
+        <div *ngIf="getTags().controls.length" formArrayName="tags">
+            <ng-container *ngFor="let item of getTags().controls;let i=index">
+              <div [formGroupName]="i">
+        <mat-form-field appearance="fill">
+            <mat-label>Enter tag</mat-label>
+            <input type="text" matInput formControlName="tag" 
+            [matAutocomplete]="auto" aria-label="Enter tag">
+        <mat-autocomplete #auto="matAutocomplete">
+           <mat-option *ngFor="let tag of tags" [value]="tag">{{tag}}</mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
+    </div>
+    <button class="btn mb-2" (click)="deleteTags(i)">delete tag</button>
+    </ng-container>
+
+    </div>
+    
+    <button class="btn mb-2" (click)="addTags()">add Tag</button>
+        <br>
+        <button type="button" class="btn" (click)="openDialog(pushPosts)">Publish Article</button>
+    </form>
+
+</div>
+</div>
+</div>
+
+<ng-template #pushPosts>
+<h4 mat-dialog-title>
+    Are You Sure You Want To create post
+</h4>
+<mat-dialog-content class="mat-typography" style="width:400px; height: auto;">
+    <div class="row">
+    <button type="button" class="btn col-2" routerLink="/articles" (click)="pushArticles();hideDialog();articleForm.reset()">Yes</button>
+    <button type="button" class="btn col-2 ml-4" (click)="hideDialog()">No</button>  
+    </div>
+</mat-dialog-content>
+</ng-template>
+
+
+
+

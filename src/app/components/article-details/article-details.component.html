@@ -1,0 +1,79 @@
+<div class="article-details">
+<div class="header">
+    <div class="container">
+        <h5>{{article.articles[currentId].title}}</h5>
+        <div class="row mt-5">
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="col-md-2 col-2">
+                        <img src="assets/images/smile.jpg" class="w-100">
+                    </div>
+                    <div class="col-md-8">
+                        <p>{{article.articles[currentId].title}}</p>
+                        <p>{{date | date :'short'}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <button class="btn" (click)="article.deleteArticle(currentId)"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                    Delete Article</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="content">
+        <p>{{article.articles[currentId].content}}</p>
+    </div>
+</div>
+<hr>
+<div class="mt-5">
+    <div class="container">
+        <div class="row">
+            <!-- <div class="comment w-100"> -->
+            <div class="col-md-12">
+                <div class="w-100">
+                    <textarea placeholder="write comment" [(ngModel)]="comment" class="w-100 p-5"></textarea>
+                </div>
+            </div>
+            <div class="col-md-12 mb-5">
+                <div class="post-comment">
+                <div class="row">
+                    <div class="col-md-10">
+                        <button class="delete-btn"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn mt-2" (click)="pushComment();comment=''">Post Comment</button>
+                    </div>
+                </div>
+            <!-- </div> -->
+            </div>
+        </div>
+       </div>
+  
+    </div>
+</div>
+<!-- <div *ngIf="article.articles"> -->
+    <div class="container mb-3">
+    <div *ngFor="let comment of article.comments;let i=index" class="mb-5" >
+        <div class="row">
+         <div class="col-md-12">
+             <p class="comment">{{comment}}</p>
+         </div>
+         <div class="col-md-12">
+          <div class="post-comment">
+              <div class="row">
+                
+                  <div class="col-md-12">
+                      <button class="delete-btn" (click)="article.deleteComment(i)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                      <!-- <button class="btn mt-2" (click)="pushComment(comment)">Post Comment</button> -->
+                  </div>
+              </div>
+          </div>
+         </div>
+        </div>
+    <!-- </div> -->
+  </div></div>
+
+</div>

@@ -1,0 +1,19 @@
+.nav{
+    background:yellowgreen;
+    padding:10px;
+    font-size: 17px;
+ul{
+    margin:0 30%;
+    li{
+        float:left;list-style-type: none;margin:0 2%;
+    }
+}
+}
+a{text-decoration: none; color: white}
+@media (max-width: 767px ){/* mobile & tablet*/
+ .nav{
+    ul{    margin: 0 -4%;} 
+ }
+}
+
+

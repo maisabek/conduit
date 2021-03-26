@@ -1,0 +1,13 @@
+.new-article{
+    font-size: 17px;
+    min-height: 735px;
+}
+.mat-form-field{width:100%}
+.btn{background: yellowgreen;outline:none;border:none;
+    font-size:17px;color: white; padding: 5px;width: 34%;}
+.card{margin: 12% 0;}
+
+@media (max-width: 767px ){/* mobile & tablet*/
+   .btn{    width: 48%;}
+    
+}
